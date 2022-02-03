@@ -70,10 +70,18 @@ const config: HardhatUserConfig = {
   solidity: {
     compilers: [{ version: "0.8.9" }],
   },
+  paths: {
+    sources: "./mock/solidity/contracts",
+    cache: "./mock/solidity/cache",
+    artifacts: "./mock/solidity/artifacts",
+  },
   networks: { hardhat: {}, ...NETWORKS },
   // create a separate file for mocha config
   mocha: {
     timeout: 50000,
+  },
+  typechain: {
+    outDir: "./mock/solidity/types",
   },
   gasReporter: {
     enabled: process.env.REPORT_GAS !== undefined,
